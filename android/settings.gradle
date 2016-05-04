@@ -1,0 +1,3 @@
+rootProject.name = 'aimsir'
+
+include ':app'
