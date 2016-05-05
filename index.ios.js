@@ -12,36 +12,62 @@ import React, {
   View
 } from 'react-native';
 
+import NavigationBar from 'react-native-navbar';
+
 class aimsir extends Component {
   render() {
+    const rightButtonConfig = {
+      title: 'Settings',
+      handler: () => <Settings />
+    };
+
+    const titleConfig = {
+      title: 'A I M S I R',
+    };
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View style={{ flex: 1, }}>
+        <NavigationBar
+          title={titleConfig}
+          rightButton={rightButtonConfig} />
+          <Text style={styles.welcome}>
+            Welcome to Aimsir!
+          </Text>
+          <Text style={styles.instructions}>
+            Aimsir is a weather app.
+          </Text>
+      </View>
+    );
+  }
+}
+
+class Settings extends Component {
+  render() {
+    const leftButtonConfig = {
+      title: 'Back',
+      handler: () => alert('hello!'),
+    };
+
+    const titleConfig = {
+      title: 'Settings',
+    };
+
+    return (
+      <View style={{ flex: 1, }}>
+        <NavigationBar
+          title={titleConfig}
+          leftButton={leftButtonConfig} />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    fontFamily: 'Avenir',
   },
   instructions: {
     textAlign: 'center',
